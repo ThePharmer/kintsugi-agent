@@ -1,0 +1,23 @@
+{
+  "hooks": {
+    "session_start": {
+      "script": ".claude/hooks/session_start.py",
+      "enabled": true
+    }
+  },
+  "status_line": {
+    "script": ".claude/status_lines/roblox_status.py",
+    "enabled": false
+  },
+  "custom_instructions": "You are helping build a Roblox game. Always consider server/client architecture and security.",
+  "allowed_tools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Bash",
+    "Grep",
+    "Glob",
+    "Task",
+    "SlashCommand"
+  ]
+}
