@@ -31,6 +31,28 @@ ollama serve
 
 The stop hook will use Ollama as fallback after OpenAI/Anthropic for generating completion messages.
 
+## Using as a Git Submodule
+
+**Want to use these agents and hooks in other projects?** This repository is designed to be used as a git submodule, allowing you to share configurations across multiple projects while keeping them automatically updated.
+
+See **[SUBMODULE_INTEGRATION.md](./SUBMODULE_INTEGRATION.md)** for complete instructions on:
+- Adding kintsugi-agent as a submodule
+- Automated setup with symlink integration
+- Using agents, commands, and output styles from the submodule
+- Updating and managing the submodule
+
+**Quick Start:**
+```bash
+# Add as submodule
+git submodule add https://github.com/ThePharmer/kintsugi-agent.git .claude/modules/kintsugi-agent
+
+# Run integration script
+cd .claude/modules/kintsugi-agent
+./setup-submodule-integration.sh
+
+# All agents/commands now available with 'kintsugi-' prefix!
+```
+
 ## Hook Lifecycle & Payloads
 
 This demo captures all 8 Claude Code hook lifecycle events with their JSON payloads:
