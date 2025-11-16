@@ -31,17 +31,33 @@ ollama serve
 
 The stop hook will use Ollama as fallback after OpenAI/Anthropic for generating completion messages.
 
-## Using as a Git Submodule
+## Using in Other Projects (Submodule or Subtree)
 
-**Want to use these agents and hooks in other projects?** This repository is designed to be used as a git submodule, allowing you to share configurations across multiple projects while keeping them automatically updated.
+**Want to use these agents and hooks in other projects?** This repository supports integration via **git subtree** (recommended) or **git submodule**, allowing you to share configurations across multiple projects while keeping them updated.
 
-See **[SUBMODULE_INTEGRATION.md](./SUBMODULE_INTEGRATION.md)** for complete instructions on:
-- Adding kintsugi-agent as a submodule
-- Automated setup with symlink integration
-- Using agents, commands, and output styles from the submodule
-- Updating and managing the submodule
+See **[INTEGRATION.md](./INTEGRATION.md)** for complete instructions on both approaches:
+- **Git Subtree** (recommended) - Simpler setup, works everywhere, no symlinks
+- **Git Submodule** - Better for active development and contributions
 
-**Quick Start:**
+### Quick Comparison
+
+| Approach | Best For | Setup Complexity | Updates | Cross-Platform |
+|----------|----------|------------------|---------|----------------|
+| **Git Subtree** ⭐ | Most users | Simpler | Manual copy | ✅ Works everywhere |
+| **Git Submodule** | Contributors | More complex | Auto via symlinks | ⚠️ Needs symlink support |
+
+### Quick Start (Subtree - Recommended)
+```bash
+# Download and run setup script
+curl -O https://raw.githubusercontent.com/ThePharmer/kintsugi-agent/main/setup-subtree-integration.sh
+chmod +x setup-subtree-integration.sh
+./setup-subtree-integration.sh
+
+# Follow prompts, choose "Direct merge" mode
+# All agents/commands copied to .claude/ with 'kintsugi-' prefix!
+```
+
+### Quick Start (Submodule)
 ```bash
 # Add as submodule
 git submodule add https://github.com/ThePharmer/kintsugi-agent.git .claude/modules/kintsugi-agent
@@ -50,7 +66,7 @@ git submodule add https://github.com/ThePharmer/kintsugi-agent.git .claude/modul
 cd .claude/modules/kintsugi-agent
 ./setup-submodule-integration.sh
 
-# All agents/commands now available with 'kintsugi-' prefix!
+# All agents/commands available via symlinks with 'kintsugi-' prefix!
 ```
 
 ## Hook Lifecycle & Payloads
